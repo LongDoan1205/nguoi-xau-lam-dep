@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Bán Máy Tính</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #f8f9fa;
+        }
+        header {
+            background: #007bff;
+            color: white;
+            padding: 15px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #search {
+            padding: 10px;
+            width: 40%;
+            border-radius: 20px;
+            border: none;
+            outline: none;
+        }
+        #cart {
+            cursor: pointer;
+            font-weight: bold;
+        }
+        main {
+            margin-top: 80px;
+            padding: 20px;
+        }
+        .product {
+            display: inline-block;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            width: 250px;
+        }
+        .product:hover {
+            transform: scale(1.05);
+        }
+        .product img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        button {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #218838;
+        }
+        #cart-items {
+            margin-top: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            max-width: 400px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🖥️ Shop Bán Máy Tính</h1>
+        <input type="text" id="search" placeholder="🔍 Tìm kiếm sản phẩm..." onkeyup="filterProducts()">
+        <div id="cart">🛒 Giỏ Hàng (<span id="cart-count">0</span>)</div>
+    </header>
+    <main>
+        <section id="products">
+            <div class="product" data-id="1" data-name="Laptop Dell" data-price="15000000">
+                <img src="shopping.jpg" alt="Laptop Dell">
+                <h2>Laptop Dell</h2>
+                <p>💰 15,000,000 VND</p>
+                <button onclick="addToCart(1, 'Laptop Dell', 15000000)">Thêm vào giỏ</button>
+            </div>
+            <div class="product" data-id="2" data-name="MacBook Pro" data-price="35000000">
+                <img src="shopping2.jpg" alt="MacBook Pro">
+                <h2>MacBook Pro</h2>
+                <p>💰 35,000,000 VND</p>
+                <button onclick="addToCart(2, 'MacBook Pro', 35000000)">Thêm vào giỏ</button>
+            </div>
+        </section>
+        <section id="cart-items">
+            <h2>🛍️ Giỏ Hàng</h2>
+            <ul id="cart-list"></ul>
+            <p><strong>Tổng tiền:</strong> <span id="total-price">0</span> VND</p>
+            <button onclick="checkout()">Thanh Toán</button>
+        </section>
+    </main>
+</body>
+</html>
